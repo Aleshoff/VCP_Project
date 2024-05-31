@@ -141,11 +141,15 @@
   <ItemGroup>
     <ClCompile Include="GeneticAlgorithm.cpp" />
     <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="PSOAlgorithm.cpp" />
     <ClCompile Include="VCP_Project.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneticAlgorithm.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="PSOAlgorithm.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="EuroRoad.txt" />

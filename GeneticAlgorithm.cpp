@@ -47,13 +47,14 @@ void GeneticAlgorithm::evolution()
 		for (int j = 0; j < populationSize; ++j)
 		{
 			std::string parent1, parent2;
-			//selection(population, parent1, parent2);
-			rankedSelection(population, parent1, parent2);
+			selection(population, parent1, parent2);
+			//rankedSelection(population, parent1, parent2);
 			crossover(parent1, parent2);
 			mutation(parent1);
 			newPopulation.push_back(parent1);
 		}
-		population = newPopulation;
+		//population = newPopulation;
+		//std::cout << i << std::endl;
 	}
 }
 
@@ -78,7 +79,7 @@ double GeneticAlgorithm::fitnessFunction(std::string chromosome)
 		if (chromosome[i] == '1')
 			nodesCovered++;
 	}
-	return nodesCovered + alpha*graph.numberOfUncoveredEdges(chromosome);
+	return nodesCovered + alpha * graph.numberOfUncoveredEdges(chromosome);
 }
 
 void GeneticAlgorithm::crossover(std::string& child1, std::string& child2)
@@ -127,7 +128,7 @@ int GeneticAlgorithm::partitionare(std::vector<std::string>& vect, int st, int d
 	int i = st - 1;
 	for (int j = st; j < dr; j++)
 	{
-		if ((int)fitnessFunction(vect[j]) >= pivot)
+		if ((int)fitnessFunction(vect[j]) <= pivot)
 		{
 			i++;
 			std::swap(vect[i], vect[j]);
